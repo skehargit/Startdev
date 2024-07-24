@@ -3,14 +3,14 @@ require("dotenv").config();
 
 exports.auth = (req,res,next)=>{
     try {
-        const token = req.body.token;
+        const token = req.cookies.token ||
+        req.body.token ||
+        req.header("Authorization").replace("Bearer ", "");
 
-        if(!token){
-            res.json({
-                success:false,
-                message:"token is missing"
-            })
-        }
+        // If JWT is missing, return 401 Unauthorized response
+		if (!token) {
+			return res.json({ success: false, message: `Token Missing` });
+		}
         
         // verify the token 
         try {
@@ -25,6 +25,8 @@ exports.auth = (req,res,next)=>{
         }
         next();
     } catch (error) {
+        // If there is an error during the authentication process,
+        console.log(error,"Somthing wrong while verifying the token")
         res.json({
             success:false,
             message:"Somthing wrong while verifying the token"

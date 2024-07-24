@@ -20,3 +20,4 @@ app.listen(port,()=>{
 
 // api mounting
 app.use("/api/v1/user",require("./routes/User.route.js"))
+app.use("/api/v1/profile",require("./routes/Profile.route.js"))

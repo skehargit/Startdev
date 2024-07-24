@@ -2,10 +2,15 @@ const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema(
     {
-        name:{
-            type:String,
-            trim:true,
-            required:true,
+        firstName: {
+            type: String,
+            required: true,
+            trim: true,
+        },
+        lastName: {
+            type: String,
+            required: true,
+            trim: true,
         },
         email:{
             type:String,
@@ -17,7 +22,17 @@ const userSchema = new mongoose.Schema(
         password:{
             type:String,
             required:true,
-        }
+        },
+        accountType: {
+            type: String,
+            enum: ["applicant", "recruiter"],
+            required: true,
+        },
+        additionalDetails: {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true,
+            ref: "Profile",
+        },
     }
     ,{timestamps:true}
 )
