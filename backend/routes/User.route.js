@@ -1,6 +1,7 @@
 const express = require("express");
 const {login,signup}=require("../controllers/User.controller.js");
-const {auth} =require('../middleware/Auth.middleware.js')
+const {auth} =require('../middleware/Auth.middleware.js');
+// const { updateProfile, deleteAccount } = require("../controllers/Profile.controller.js");
 const Router = express.Router();
 
 // Route for user login

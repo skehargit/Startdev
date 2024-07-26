@@ -19,5 +19,12 @@ app.listen(port,()=>{
 // DBConnect();
 
 // api mounting
+
+//for user 
 app.use("/api/v1/user",require("./routes/User.route.js"))
+
+//for user profile
 app.use("/api/v1/profile",require("./routes/Profile.route.js"))
+
+//for jobs 
+app.use("/api/v1/job",require('./routes/JobDetails.route.js'))
