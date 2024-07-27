@@ -23,8 +23,8 @@ app.listen(port,()=>{
 //for user 
 app.use("/api/v1/user",require("./routes/User.route.js"))
 
-//for user profile
-app.use("/api/v1/profile",require("./routes/Profile.route.js"))
+//for job
+app.use("/api/v1/job",require('./routes/Job.route.js'))
 
-//for jobs 
-app.use("/api/v1/job",require('./routes/JobDetails.route.js'))
+//for application 
+app.use("/api/v1/application",require("./routes/Application.router.js"))

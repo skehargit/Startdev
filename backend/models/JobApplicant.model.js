@@ -48,17 +48,6 @@ let applicantSchema = new mongoose.Schema(
     profile: {
       type: String,
     },
-    rating: {
-        type: Number,
-        max: 5.0,
-        default: -1.0,
-        validate: {
-          validator: function (value) {
-            return value >= -1.0 && value <= 5.0;
-          },
-          msg: "Invalid rating",
-        },
-      },
   }
   ,{timestamps:true}
 );

@@ -12,6 +12,10 @@ const userSchema = new mongoose.Schema(
             required: true,
             trim: true,
         },
+        contactNumber: {
+            type: Number,
+            trim: true,
+        },
         email:{
             type:String,
             trim:true,
@@ -28,11 +32,23 @@ const userSchema = new mongoose.Schema(
             enum: ["applicant", "recruiter"],
             required: true,
         },
-        additionalDetails: {
-            type: mongoose.Schema.Types.ObjectId,
-            required: true,
-            ref: "Profile",
+        gender: {
+            type: String,
         },
+        dateOfBirth: {
+            type: String,
+        },
+        address:{
+            type:String,
+        },
+        about: {
+            type: String,
+            trim: true,
+        },
+        bio:{
+            type:String,
+        }
+        
     }
     ,{timestamps:true}
 )

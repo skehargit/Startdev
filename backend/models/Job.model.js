@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const jobDetailsSchema = new mongoose.Schema(
+const jobSchema = new mongoose.Schema(
     {
         name: {
             type: String,
@@ -11,7 +11,7 @@ const jobDetailsSchema = new mongoose.Schema(
             type:String,
             required:true
         },
-        application_instruction:{
+        applicationInstruction:{
             type:String,
             required:true,
         },
@@ -19,15 +19,15 @@ const jobDetailsSchema = new mongoose.Schema(
             type:String,
             required:true,
         },
-        required_skills:{
+        requiredSkills:{
             type:[String],
             required: true,
         },
-        number_of_openings:{
+        numberOfOpenings:{
             type:Number,
             required:true,
         },
-        max_applicants:{
+        maxApplicants:{
             type:Number,
             validate: [
                 {
@@ -42,7 +42,7 @@ const jobDetailsSchema = new mongoose.Schema(
                 },
               ],
         },
-        max_positions:{
+        maxPositions:{
             type:Number,
             validate: [
                 {
@@ -57,7 +57,7 @@ const jobDetailsSchema = new mongoose.Schema(
                 },
               ],
         },
-        additional_information:{
+        additionalInformation:{
             type:String
         },
         location:{
@@ -79,7 +79,7 @@ const jobDetailsSchema = new mongoose.Schema(
                 },
               ],
         },
-        posting_date:{
+        postingDate:{
             type: Date,
             default: Date.now,
         },
@@ -111,18 +111,7 @@ const jobDetailsSchema = new mongoose.Schema(
                 },
               ],
         },
-        rating: {
-            type: Number,
-            max: 5.0,
-            default: -1.0,
-            validate: {
-              validator: function (value) {
-                return value >= -1.0 && value <= 5.0;
-              },
-              msg: "Invalid rating",
-            },
-        },
     }
     ,{timestamps:true}
 )
-module.exports = mongoose.model("JobDetails",jobDetailsSchema);
+module.exports = mongoose.model("Job",jobSchema);

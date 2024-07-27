@@ -137,6 +137,7 @@ exports.login = async (req, res) => {
   }
 };
 
+
 // Changing Password
 exports.changePassword = async (req, res) => {
     try {
@@ -176,4 +177,19 @@ exports.changePassword = async (req, res) => {
         error: error.message,
       })
     }
+}
+
+//update user details
+exports.update = async(req,res)=>{
+
+}
+
+//delete account 
+exports.deleteAccount = async(req,res)=>{
+
+}
+
+//forgot password 
+exports.forgotPassword = async(req,res)=>{
+
 }
